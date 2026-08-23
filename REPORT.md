@@ -5,7 +5,7 @@
 **Model:** Qwen3-1.7B-Q8_0  
 **Owner:** Farai Rashayi  
 **Repository:** https://github.com/Farzerl/simba-autonomous-energy-agent  
-**Video:** Pending final public demo upload
+**Video:** https://youtu.be/ptqL1E-LdR0
 
 ---
 
