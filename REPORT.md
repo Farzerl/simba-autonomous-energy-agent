@@ -119,9 +119,31 @@ and kept live control disabled.
 Evidence is in `evidence/public_synthetic_agent_benchmark.json`. This app timing is
 not a llama.cpp score.
 
-### Final participant profile — owner input
+### Final participant profile
 
-`Official profiler values pending final profiling run. Development measurements below are not a substitute for the official profiler.`
+The official ADTC profiler v0.1.0 was run in participant mode against the exact
+Qwen3-1.7B Q8_0 GGUF referenced by `metadata.json`. The run used CPU-only
+`llama-bench` telemetry and the profiler's 50-sample ARC-Easy accuracy stage.
 
-Do not replace the development table with estimates. Keep the generated
-`submission.json` unchanged and report only measured values.
+| Metric | Final participant result |
+|---|---:|
+| Generation throughput | 6.94 tokens/s |
+| First-token latency | 18,390.14 ms |
+| Peak RSS | 2,557.15 MB |
+| Steady-state RSS | 2,300.16 MB |
+| ARC-Easy normalized accuracy | 0.76 |
+| Accuracy samples | 50 |
+| CPU utilisation p99 | 95.3% |
+| Thermal throttling detected | No |
+| Self-reported performance score, Sperf | 46.27 |
+| Self-reported efficiency score, Seff | 64.33 |
+
+Participant environment: Windows 11, 7.9 GB RAM, CPU-only inference, reported by
+the profiler as `participant_laptop`. CPU temperature was not exposed by the
+available Windows sensor interface, while the profiler reported no detected
+thermal throttling. Final organizer evaluation is expected to be repeated on the
+standardized ADTC evaluation environment, so audited telemetry may differ from
+these participant measurements.
+
+The generated `submission.json` is retained unchanged as the local profiler
+evidence for these values.
