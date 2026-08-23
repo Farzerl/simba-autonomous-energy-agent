@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIMBA-EMS Actuation Center</title>
+  <link rel="stylesheet" href="/static/actuation.css?v=actuation-ui-v1-light-lifecycle-v3-demand-flow-nav-20260812">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <nav class="product-bar" aria-label="SIMBA-EMS navigation">
+      <a class="product-home" href="/?tab=demo"><span class="product-mark" aria-hidden="true">S</span><span><strong>Institutional Energy Management</strong><small>SIMBA-EMS control workspace</small></span></a>
+      <div class="product-actions"><span class="mode-chip">Operator-confirmed control</span><a class="home-link" href="/?tab=demo">Back to Home</a></div>
+    </nav>
+    <nav class="dashboard-tabs" aria-label="Dashboard sections">
+      <a class="dashboard-tab" href="/?tab=demo">Home</a>
+      <a class="dashboard-tab demand-flow-tab" href="/?tab=demand-flow">Demand Flow</a>
+      <a class="dashboard-tab" href="/?tab=live">Forecasts</a>
+      <a class="dashboard-tab" href="/?tab=operations">Operations</a>
+      <a class="dashboard-tab" href="/?tab=cost">Impact</a>
+      <a class="dashboard-tab" href="/?tab=evidence">Evidence</a>
+      <a class="dashboard-tab" href="/?tab=architecture">Architecture</a>
+    </nav>
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">SIMBA-EMS &middot; external control layer</div>
+        <h1>Actuation Center</h1>
+        <p>Operator-approved non-critical actions are mapped to connected breaker and motor-control endpoints. Current mode is hardware emulation. Device commands, acknowledgements and impact attribution are exercised without physical switching.</p>
+      </div>
+
+      <div class="hero-controls">
+        <label class="select-label" for="facility">Facility</label>
+        <select id="facility" class="facility-select" aria-label="Select facility"></select>
+        <div class="hero-mode">
+          <span class="status-dot ok"></span>
+          <div>
+            <strong>Hardware emulation</strong>
+            <span>Live switching locked</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="summary-grid" aria-label="Actuation summary">
+      <article class="summary-card">
+        <span class="summary-label">Gateway</span>
+        <strong id="summaryGateway">Connecting</strong>
+        <small id="summaryGatewayDetail">SIMBA-GW-CTRL-01</small>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Facility devices</span>
+        <strong id="summaryDevices">0</strong>
+        <small id="summaryDevicesDetail">waiting for inventory</small>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Remote-ready</span>
+        <strong id="summaryRemote">0</strong>
+        <small>eligible emulator endpoints</small>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Session approvals</span>
+        <strong id="summaryCommands">0</strong>
+        <small>approved lifecycle records</small>
+      </article>
+    </section>
+
+    <main class="work-grid">
+      <section id="inventoryPanel" class="panel inventory-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">Facility inventory</span>
+            <h2 id="deviceListTitle">Devices</h2>
+          </div>
+          <span id="deviceCount" class="counter">0</span>
+        </div>
+        <div id="devices" class="device-list"></div>
+      </section>
+
+      <section class="panel equipment-panel">
+        <div class="device-titlebar">
+          <div>
+            <span id="deviceId" class="section-kicker">DEVICE</span>
+            <h2 id="deviceName">Select a device</h2>
+            <div class="device-meta">
+              <span id="metaFacility">Facility &middot; &mdash;</span>
+              <span id="metaPanel">Panel &middot; &mdash;</span>
+              <span id="metaLoad">Load &middot; &mdash;</span>
+            </div>
+          </div>
+          <div class="badge-row">
+            <span id="commBadge" class="badge neutral">OFFLINE</span>
+            <span id="remoteBadge" class="badge neutral">LOCAL</span>
+            <span id="contactBadge" class="badge neutral">&mdash;</span>
+          </div>
+        </div>
+
+        <div class="equipment-stage">
+          <div class="equipment-backplate">
+            <div class="equipment-rail top-rail"></div>
+            <div class="equipment-rail bottom-rail"></div>
+            <img id="deviceVisual" class="device-visual" src="/static/actuation_devices/compact_nsx.svg" alt="Connected electrical device reference illustration">
+            <div class="device-screen-overlay">
+              <span>SIMBA CONTROL</span>
+              <strong id="screenLine1">NO DEVICE</strong>
+              <strong id="screenLine2">WAITING</strong>
+              <small id="screenLine3">No command</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-facts">
+          <div class="fact">
+            <span>Attached class</span>
+            <strong id="attachedClass">&mdash;</strong>
+          </div>
+          <div class="fact">
+            <span>Safe capacity</span>
+            <strong id="capacity">&mdash;</strong>
+          </div>
+          <div class="fact">
+            <span>Command capability</span>
+            <strong id="capability">&mdash;</strong>
+          </div>
+          <div class="fact">
+            <span>Manufacturer reference</span>
+            <strong id="manufacturer">&mdash;</strong>
+          </div>
+        </div>
+
+        <div class="safety-ribbon">
+          <div>
+            <strong>Safety boundary</strong>
+            <span>Critical circuits are monitor-only. Live electrical switching is disabled in this build.</span>
+          </div>
+          <span class="lock-chip">LIVE CONTROL LOCKED</span>
+        </div>
+      </section>
+
+      <aside class="side-stack">
+        <section class="panel" id="liveStatePanel">
+          <div class="panel-heading compact">
+            <div>
+              <span class="section-kicker">Selected endpoint</span>
+              <h2>Live state</h2>
+            </div>
+            <span id="healthPill" class="status-pill">&mdash;</span>
+          </div>
+          <div id="liveState" class="kv-list"></div>
+        </section>
+
+        <section class="panel" id="gatewayPanel">
+          <div class="panel-heading compact">
+            <div>
+              <span class="section-kicker">Control plane</span>
+              <h2>Gateway</h2>
+            </div>
+            <span class="status-pill ok">LOCAL</span>
+          </div>
+          <div id="gateway" class="kv-list"></div>
+        </section>
+
+        <section class="panel emulator-panel" id="settingsPanel">
+          <div class="panel-heading compact">
+            <div>
+              <span class="section-kicker">Test controls</span>
+              <h2>Hardware emulator</h2>
+            </div>
+            <span class="status-pill amber">NO PHYSICAL I/O</span>
+          </div>
+          <p class="muted-copy">Software-only fault-state controls for demonstrating gateway safety logic.</p>
+          <div class="emulator-actions">
+            <button id="btnHealthy" type="button">Healthy + remote</button>
+            <button id="btnLocal" type="button">Local override</button>
+            <button id="btnOffline" type="button">Offline</button>
+          </div>
+          <div id="emulatorMessage" class="inline-message"></div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="lower-grid">
+      <section class="panel impact-panel">
+        <div class="panel-heading compact">
+          <div>
+            <span class="section-kicker">Closed-loop linkage</span>
+            <h2>Approval &rarr; device &rarr; impact</h2>
+          </div>
+          <span class="status-pill">EMULATED</span>
+        </div>
+        <div id="impact" class="impact-grid"></div>
+        <div id="claim" class="claim-boundary">Waiting for actuation impact state.</div>
+      </section>
+
+      <section class="panel events-panel" id="logsPanel">
+        <div class="panel-heading compact">
+          <div>
+            <span class="section-kicker">Audit trail</span>
+            <h2>Recent actuation events</h2>
+          </div>
+          <span id="lastSync" class="counter">&mdash;</span>
+        </div>
+        <div id="events" class="event-list"></div>
+      </section>
+    </section>
+
+    <footer class="footer-bar">
+      <span id="gatewayFooter">Connecting to local control gateway&hellip;</span>
+      <span>SIMBA-EMS &middot; sovereign local control plane &middot; hardware emulation</span>
+    </footer>
+
+    <div id="fatalError" class="fatal-error" hidden></div>
+  </div>
+
+  <script src="/static/actuation.js?v=actuation-ui-v1-light-lifecycle-v2-20260812" defer></script>
+</body>
+</html>

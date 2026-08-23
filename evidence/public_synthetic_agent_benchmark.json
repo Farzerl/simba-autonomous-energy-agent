@@ -1,0 +1,118 @@
+{
+  "benchmark": "SIMBA deterministic software-in-the-loop resilience mission",
+  "scope_note": "This is a deterministic synthetic-fixture application benchmark, not the official ADTC llama.cpp/GGUF profiler result.",
+  "runs": 10,
+  "latency_ms": {
+    "mean": 928.602,
+    "median": 949.456,
+    "minimum": 748.001,
+    "maximum": 1060.899
+  },
+  "python_tracemalloc_peak_mb": 1.963,
+  "process_peak_rss_mb": 34.043,
+  "resource_note": "process_peak_rss_mb uses the operating-system high-water mark on Linux/macOS and a process RSS sample on Windows; Python tracemalloc is reported separately.",
+  "all_targets_met": true,
+  "all_live_control_disabled": true,
+  "results": [
+    {
+      "elapsed_ms": 975.572,
+      "complication": "device_unavailable",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 24,
+      "action_count": 4,
+      "headroom_kva": 7.332,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 889.426,
+      "complication": "underperforming_action",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 22,
+      "action_count": 4,
+      "headroom_kva": 7.614,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 886.02,
+      "complication": "device_unavailable",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 24,
+      "action_count": 4,
+      "headroom_kva": 7.332,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 939.555,
+      "complication": "underperforming_action",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 22,
+      "action_count": 4,
+      "headroom_kva": 7.614,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 1036.009,
+      "complication": "device_unavailable",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 24,
+      "action_count": 4,
+      "headroom_kva": 7.332,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 1060.899,
+      "complication": "underperforming_action",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 22,
+      "action_count": 4,
+      "headroom_kva": 7.614,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 829.325,
+      "complication": "device_unavailable",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 24,
+      "action_count": 4,
+      "headroom_kva": 7.332,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 961.852,
+      "complication": "underperforming_action",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 22,
+      "action_count": 4,
+      "headroom_kva": 7.614,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 959.357,
+      "complication": "device_unavailable",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 24,
+      "action_count": 4,
+      "headroom_kva": 7.332,
+      "live_control_enabled": false
+    },
+    {
+      "elapsed_ms": 748.001,
+      "complication": "underperforming_action",
+      "target_met": true,
+      "replan_count": 1,
+      "event_count": 22,
+      "action_count": 4,
+      "headroom_kva": 7.614,
+      "live_control_enabled": false
+    }
+  ]
+}

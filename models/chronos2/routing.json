@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "public_package": true,
+  "deployment_variant": "weights_withheld_from_public_package",
+  "eligible": false,
+  "selected_by_horizon": {},
+  "note": "Interface metadata only. Chronos weights and institutional validation metrics are not distributed in the public ADTC package."
+}

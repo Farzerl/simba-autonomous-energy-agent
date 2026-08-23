@@ -1,0 +1,58 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+# Private institutional data and model artefacts
+private_data/
+raw_data/
+evidence/private*/
+*.xlsx
+*.xls
+*.zip
+*.rar
+*.joblib
+*.pkl
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.pem
+*.key
+
+# Retain the reviewed public cost workbook
+!evidence/cost_impact/AI4I_EMS_Public_Tariff_and_Cost_Model.xlsx
+
+# Generated and local runtime state
+runtime/
+logs/
+*.log
+software/data/generated/
+
+# ADTC evaluator downloads GGUF weights through download_model.sh
+*.gguf
+*.gguf.partial
+model/*
+!model/README.md
+submission.json
+audit.json
+verdict.json
+
+# Local editor and notebook state
+.ipynb_checkpoints/
+.vscode/
+.idea/
+*.pyc

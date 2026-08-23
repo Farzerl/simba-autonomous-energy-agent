@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "mode": "software_in_the_loop",
+  "live_control_enabled": false,
+  "default_scenario_id": "campus_peak_replay",
+  "demo": {
+    "peak_limit_kva": 1203.961,
+    "reserve_margin_kva": 8.0,
+    "target_window_start": "2025-10-29T10:00:00+02:00",
+    "target_window_end": "2025-10-29T12:00:00+02:00",
+    "complication": "device_unavailable",
+    "underperformance_multiplier": 0.45
+  },
+  "planning_weights": {
+    "safety": 0.25,
+    "goal_coverage": 0.35,
+    "confidence": 0.15,
+    "low_disruption": 0.15,
+    "cost": 0.05,
+    "compactness": 0.05
+  },
+  "response_effects": {
+    "deferrable": {
+      "source": "existing emulator and conservative response history prior",
+      "expected_factor": 0.9,
+      "actual_factor": 0.88,
+      "confidence": 0.92
+    },
+    "sheddable": {
+      "source": "existing emulator and conservative response history prior",
+      "expected_factor": 0.82,
+      "actual_factor": 0.8,
+      "confidence": 0.87
+    }
+  },
+  "context": {
+    "max_candidates": 32,
+    "max_plan_variants": 3,
+    "max_event_details_chars": 2000
+  },
+  "provider": {
+    "default": "mock",
+    "llama_server_url": "http://127.0.0.1:8081",
+    "max_context_tokens": 2048,
+    "max_output_tokens": 160,
+    "temperature": 0.0,
+    "cache_enabled": true
+  }
+}

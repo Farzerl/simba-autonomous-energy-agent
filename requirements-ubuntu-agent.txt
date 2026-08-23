@@ -1,0 +1,5 @@
+# Lightweight SIMBA product application only. The official ADTC GGUF profiler is
+# installed separately because it owns its llama.cpp and benchmark dependencies.
+fastapi==0.139.0
+pydantic==2.13.4
+uvicorn==0.51.0

@@ -1,0 +1,49 @@
+{
+  "team_id": "simba-autonomous-energy-operations-agent",
+  "domain": "autonomous_ai_agents",
+  "language_scope": [
+    "en",
+    "sn",
+    "nd",
+    "sw",
+    "zu"
+  ],
+  "african_alpha_claim": true,
+  "budget_laptop_claim": true,
+  "submitter": {
+    "name": "Farai Rashayi",
+    "email": "fzrashayi@gmail.com",
+    "github_handle": "Farzerl"
+  },
+  "cross_disciplinary_pairing": {
+    "discipline": "energy_systems_and_power_engineering",
+    "load_bearing": true,
+    "description": "The local model supports an approval-gated energy operations agent whose deterministic power-engineering services forecast demand, enforce critical-load and device limits, emulate actions, verify measured response, and replan without cloud connectivity."
+  },
+  "test_prompts": [
+    {
+      "prompt_id": "tp_001",
+      "prompt": "You are selecting between plans already cleared by a deterministic electrical safety firewall. Campus forecast is 1280.8 kVA and the peak limit is 1204.0 kVA, so at least 76.8 kVA reduction is required. Critical loads are excluded and live switching is disabled. Plan A: 84.0 kVA reduction, confidence 0.91, disruption 0.20. Plan B: 91.0 kVA reduction, confidence 0.73, disruption 0.55. Both meet the reduction requirement. Choose by this exact priority: safety-cleared, meets requirement, highest confidence, lowest disruption, then lowest excess reduction. Operator approval is required before any emulated execution. Return one compact JSON object with selected_plan, reason, approval_required, verification_step. Do not invent a plan. /no_think"
+    },
+    {
+      "prompt_id": "tp_002",
+      "prompt": "SIMBA is software-in-the-loop; live electrical control stays disabled. An approved plan underperformed and campus remains 18 kVA above its limit. Dynamic replanning permits at most 20 actions and 250 kVA total reduction. Deterministic candidates: R1 = defer non-critical water heating, available, safety-cleared, 24 kVA; R2 = shed critical medical load, prohibited, 40 kVA; R3 = stop non-critical pump, unavailable, 30 kVA. Select only from R1/R2/R3. Return one compact JSON object with observe, exclude, select, safety_check, emulate, verify; keep every value under 12 words. Exclude critical and unavailable candidates. The selected response must cover at least 18 kVA. Verification compares observed campus demand with the limit. /no_think"
+    }
+  ],
+  "model": {
+    "name": "Qwen3-1.7B-Q8_0",
+    "runtime": "llama.cpp",
+    "quantization": "GGUF Q8_0",
+    "parameters_estimate": "1.7B",
+    "packaging": "binary_bundle"
+  },
+  "_runtime": {
+    "model_path": "model/Qwen3-1.7B-Q8_0.gguf"
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "validated_utc": "2026-08-22T15:00:43Z",
+  "target": "freshly_extracted_ubuntu_github_release",
+  "preflight": {
+    "passed": true,
+    "expected_warnings": [
+      "registered identity placeholders remain"
+    ]
+  },
+  "archive_hygiene": {
+    "files": 71,
+    "forbidden_files": 0,
+    "restricted_wording_lines": 0,
+    "manifest_hash_failures": 0,
+    "shell_entrypoint_mode": "0755",
+    "runtime_directory_present": false,
+    "gguf_in_archive": false
+  },
+  "tests": {
+    "api_and_safety_tests_passed": 5,
+    "headless_scenarios_passed": 2,
+    "javascript_syntax_checks_passed": 2
+  },
+  "missions": {
+    "device_unavailable": {
+      "state": "TARGET_MET",
+      "replans": 1,
+      "observed_kva": 1196.629,
+      "headroom_kva": 7.332,
+      "critical_load_actions": 0,
+      "live_switching": false
+    },
+    "underperforming_action": {
+      "state": "TARGET_MET",
+      "replans": 1,
+      "observed_kva": 1196.347,
+      "headroom_kva": 7.614,
+      "critical_load_actions": 0,
+      "live_switching": false
+    }
+  },
+  "browser_check": {
+    "http_status": 200,
+    "health_mode": "software_in_the_loop",
+    "live_control": false,
+    "languages_tested": [
+      "en",
+      "sn",
+      "nd"
+    ],
+    "device_unavailable_mission_from_ui": "TARGET_MET",
+    "underperforming_mission_from_ui": "TARGET_MET"
+  },
+  "development_model_check": {
+    "model": "Qwen3-1.7B-Q8_0",
+    "sha256_verified": true,
+    "prompt_tokens_per_second": 19.59,
+    "generation_tokens_per_second": 4.77,
+    "peak_rss_mb": 1841.7,
+    "scope": "local CPU development measurement; final participant profiler remains required"
+  },
+  "notes": [
+    "The release contains deterministic synthetic profiles and generic facility names, not measured institutional readings.",
+    "Fresh-extraction validation ran on Windows with Python 3.12; Ubuntu 22.04 CI is included for the published repository.",
+    "The application benchmark and development llama.cpp measurements are not a substitute for the final official participant profile."
+  ]
+}

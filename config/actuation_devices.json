@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "mode": "hardware_emulation",
+  "fixture_scope": "synthetic_public_demo",
+  "gateway": {
+    "gateway_id": "SIMBA-GW-PUBLIC-01",
+    "name": "SIMBA public software-in-the-loop gateway",
+    "protocol": "Hardware emulation only",
+    "heartbeat_seconds": 2,
+    "command_timeout_seconds": 8,
+    "ack_timeout_seconds": 3,
+    "live_control_enabled": false
+  },
+  "product_families": {
+    "masterpact_mtz": {
+      "manufacturer": "Reference virtual device",
+      "family": "Virtual main incomer",
+      "device_type": "air_circuit_breaker_emulator",
+      "role": "monitor-only synthetic incomer",
+      "control_capability": "monitor_only_in_demo"
+    },
+    "compact_nsx": {
+      "manufacturer": "Reference virtual device",
+      "family": "Virtual controllable feeder",
+      "device_type": "feeder_emulator",
+      "role": "synthetic sheddable feeder",
+      "control_capability": "open_close_in_hardware_emulation"
+    },
+    "tesys_island": {
+      "manufacturer": "Reference virtual device",
+      "family": "Virtual scheduled-load controller",
+      "device_type": "load_controller_emulator",
+      "role": "synthetic deferrable group",
+      "control_capability": "run_stop_defer_in_hardware_emulation"
+    }
+  },
+  "facility_templates": {
+    "default": {
+      "main_capacity_kva": 180.0,
+      "sheddable_capacity_kva": 35.0,
+      "deferrable_capacity_kva": 30.0
+    }
+  },
+  "facilities": [
+    "Campus Facility 01",
+    "Campus Facility 02",
+    "Campus Facility 03",
+    "Campus Facility 04",
+    "Campus Facility 05",
+    "Campus Facility 06",
+    "Campus Facility 07",
+    "Campus Facility 08",
+    "Campus Facility 09",
+    "Campus Facility 10",
+    "Campus Facility 11",
+    "Campus Facility 12",
+    "Campus Facility 13",
+    "Campus Facility 14",
+    "Campus Facility 15",
+    "Campus Facility 16",
+    "Campus Facility 17",
+    "Campus Facility 18",
+    "Campus Facility 19",
+    "Campus Facility 20",
+    "Campus Facility 21",
+    "Campus Facility 22"
+  ]
+}
